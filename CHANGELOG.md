@@ -7,4 +7,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-[unreleased]: #
+[unreleased]: https://github.com/achttienvijftien/missed-schedule-fixer/compare/1.0.0...main
