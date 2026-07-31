@@ -2,6 +2,30 @@
 
 Ever had problems with scheduled posts not being published? This plugin fixes that problem.
 
+## Configuration
+
+Every minute the plugin looks for scheduled posts that lost their publish event. To keep that query fast,
+only posts scheduled within a window around the current time are considered: by default from one day into
+the past up to one hour into the future. Posts that were scheduled long before that window are considered
+stale and are left alone.
+
+Use the `achttienvijftien_missed_schedule_fixer_query_args` filter to change the query. For example, to
+look a week into the past instead of a day:
+
+```php
+add_filter(
+	'achttienvijftien_missed_schedule_fixer_query_args',
+	function ( $query_args ) {
+		$query_args['date_query'][0]['after'] = wp_date( 'Y-m-d H:i:s', time() - WEEK_IN_SECONDS );
+
+		return $query_args;
+	}
+);
+```
+
+Keep the query bounded by `post_date`. Removing the date query brings back the slow, unbounded behaviour
+this window is meant to avoid.
+
 ## Prerequisites
 
 ### Basic installation

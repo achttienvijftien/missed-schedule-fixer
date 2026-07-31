@@ -85,18 +85,37 @@ class Schedule {
 	}
 
 	/**
-	 * Gets all scheduled posts.
+	 * Gets scheduled posts within the configured date window.
 	 *
 	 * @return array|null
 	 */
 	private function get_scheduled_posts(): ?array {
-		$scheduled_posts = get_posts(
+		$now = time();
+
+		/**
+		 * Filters the query arguments used to find scheduled posts.
+		 *
+		 * @param array $query_args Arguments passed to get_posts().
+		 */
+		$query_args = apply_filters(
+			'achttienvijftien_missed_schedule_fixer_query_args',
 			[
 				'post_type'      => 'any',
 				'post_status'    => 'future',
 				'posts_per_page' => - 1,
+				'orderby'        => 'none',
+				'date_query'     => [
+					[
+						'column'    => 'post_date',
+						'after'     => wp_date( 'Y-m-d H:i:s', $now - DAY_IN_SECONDS ),
+						'before'    => wp_date( 'Y-m-d H:i:s', $now + HOUR_IN_SECONDS ),
+						'inclusive' => true,
+					],
+				],
 			]
 		);
+
+		$scheduled_posts = get_posts( $query_args );
 
 		return $scheduled_posts ?: null;
 	}
