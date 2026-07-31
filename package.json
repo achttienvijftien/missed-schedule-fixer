@@ -9,12 +9,12 @@
   "private": true,
   "scripts": {
     "wp-env": "wp-env",
-    "test:php:unit": "wp-env run phpunit \"phpunit -c /var/www/html/wp-content/plugins/brick/phpunit.xml.dist --verbose --testdox\"",
+    "test:php:unit": "wp-env run tests-cli --env-cwd=wp-content/plugins/missed-schedule-fixer ./vendor/bin/phpunit",
     "test": "yarn test:php:unit",
     "format": "composer run-script format",
     "lint": "composer run-script lint"
   },
   "devDependencies": {
-    "@wordpress/env": "^5.6.0"
+    "@wordpress/env": "^11.10"
   }
 }
