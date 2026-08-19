@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0]
+
 ### Changed
 
 - The scheduled posts query is now limited to a date window around the current time, defaulting to one day
@@ -17,4 +19,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Filter `achttienvijftien_missed_schedule_fixer_query_args` to change the query used to find scheduled
   posts.
 
-[unreleased]: https://github.com/achttienvijftien/missed-schedule-fixer/compare/1.0.0...main
+[unreleased]: https://github.com/achttienvijftien/missed-schedule-fixer/compare/1.1.0...main
+
+[1.1.0]: https://github.com/achttienvijftien/missed-schedule-fixer/compare/1.0.0...1.1.0

@@ -3,7 +3,7 @@
  * Plugin Name: 1815 - Missed Schedule Fixer
  * Plugin URI: https://www.1815.nl
  * Description: Fixes "missed schedule" problems with posts
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: 1815
  * Author URI: https://www.1815.nl
  *
