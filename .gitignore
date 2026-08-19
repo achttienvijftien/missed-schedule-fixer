@@ -3,3 +3,4 @@ vendor/
 
 .phpunit.result.cache
 .idea
+.wp-env.override.json
